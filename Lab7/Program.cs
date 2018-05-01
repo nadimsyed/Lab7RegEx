@@ -52,7 +52,7 @@ namespace Lab7
 
                 Console.Write("Please write a valid phone number in the format Three Digits - Three Digits - 4 Digits:  ");
                 string PhoneNumber = Console.ReadLine();
-                if (PhoneValidator(PhoneNumber))
+                if (PhoneNumberChecker(PhoneNumber))
                 {
                     Console.WriteLine("Phone number is valid");
                     Console.WriteLine();
@@ -92,6 +92,7 @@ namespace Lab7
                 {
                     Console.WriteLine("Not an HTML!");
                     Console.WriteLine();
+                    truth = false;
                     continue;
                 }
 
@@ -203,12 +204,12 @@ namespace Lab7
 
         public static bool PhoneValidator(string phoneDigits) // Can prob also convert in main and input int instead
         {
-            return Regex.IsMatch(phoneDigits, @"\b(\d{3}[-, , .]){2}\d{4}\b");
+            return Regex.IsMatch(phoneDigits, @"\b(\d{3}[-, .]){2}\d{4}\b");
         }
 
         public static bool DateValidator(string date) //Might be a way to use string, but def need to look up formatter
         {
-            return Regex.IsMatch(date, @"\b(\d{1,2}[-, , .,\/]){2}(\d{2}|\d{4})\b");
+            return Regex.IsMatch(date, @"\b(\d{1,2}[-, .,\/]){2}(\d{2}|\d{4})\b");
         }
 
         public static bool Continue()
